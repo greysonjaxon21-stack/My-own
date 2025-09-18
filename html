@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrightLeaf — Modern Landing Page</title>
+  <meta name="description" content="A clean modern single-file HTML landing page with responsive layout, animations, and a contact form." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.04);
+      --radius:16px; --maxw:1100px;
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#071021 0%, #0b1220 100%); color:#e6eef6; -webkit-font-smoothing:antialiased;
+      display:flex; align-items:center; justify-content:center; padding:48px 20px;
+    }
+    .wrap{width:100%; max-width:var(--maxw)}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:700;color:#052;letter-spacing:-0.02em}
+    h1{margin:0;font-size:20px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    .hero{background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:36px;border-radius:20px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+
+    .headline{max-width:56ch}
+    .kicker{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;color:var(--accent);font-weight:600;font-size:13px;margin-bottom:14px}
+    h2{font-size:28px;margin:6px 0 12px;line-height:1.03}
+    p.lead{color:var(--muted);margin:0 0 20px}
+    .cta-row{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#042;box-shadow:0 6px 24px rgba(102,211,165,0.08)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .card{background:rgba(255,255,255,0.02);padding:16px;border-radius:12px}
+    .card h3{margin:0 0 8px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* right column - form */
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea,select{background:#031220;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:10px;color:#e6eef6;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .features{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .brand h1{font-size:18px}
+    }
+
+    /* subtle animations */
+    .fade-up{transform:translateY(10px);opacity:0;transition:all 540ms cubic-bezier(.2,.9,.3,1)}
+    .fade-up.in{transform:none;opacity:1}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">B</div>
+        <div>
+          <h1>BrightLeaf</h1>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Smart, clean web experiences</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section class="headline">
+        <div class="kicker">Launch-ready • Single-file</div>
+        <h2 class="fade-up" style="transition-delay:60ms">A beautiful, responsive HTML landing page you can edit in one file.</h2>
+        <p class="lead fade-up" style="transition-delay:120ms">Ship faster with an approachable, accessible starting template — includes hero, features grid, pricing mock, and a working contact form (no server required for demo).</p>
+        <div class="cta-row fade-up" style="transition-delay:200ms">
+          <button class="btn btn-primary" id="downloadBtn">Download HTML</button>
+          <button class="btn btn-ghost" id="previewBtn">Live preview</button>
+        </div>
+
+        <div id="features" class="features fade-up" style="transition-delay:280ms">
+          <div class="card">
+            <h3>Fast to customize</h3>
+            <p>Clear structure and comments so you can change copy, colors, and sections quickly.</p>
+          </div>
+          <div class="card">
+            <h3>Responsive</h3>
+            <p>Designed to look great on phones, tablets, and desktops without external CSS frameworks.</p>
+          </div>
+          <div class="card">
+            <h3>Accessible</h3>
+            <p>Good color contrast, semantic markup, and keyboard-focusable controls.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <strong style="display:block;margin-bottom:8px">Get a free demo</strong>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+          <select name="topic">
+            <option>General inquiry</option>
+            <option>Partnership</option>
+            <option>Support</option>
+          </select>
+          <textarea name="message" placeholder="How can we help?" required></textarea>
+          <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+            <div class="small">No spam. Unsubscribe anytime.</div>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </div>
+        </form>
+        <div id="formMsg" class="small" style="margin-top:10px;display:none"></div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> BrightLeaf</div>
+      <div>Made with ♥ — <span class="small">Single-file starter</span></div>
+    </footer>
+  </div>
+
+  <script>
+    // small UX enhancements
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // animate elements on load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{
+        setTimeout(()=>el.classList.add('in'), 70*i);
+      });
+    });
+
+    // fake contact form handler (client-side only)
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const payload = Object.fromEntries(data.entries());
+      // show a friendly message — in real site you'd POST to a server
+      msg.style.display='block';
+      msg.textContent = `Thanks ${payload.name || 'friend'} — we'll get back to ${payload.email} soon!`;
+      form.reset();
+    });
+
+    // Download button: creates and downloads the current HTML as a file
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'brightleaf-demo.html';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // Preview button: opens a new window with the same HTML content
+    document.getElementById('previewBtn').addEventListener('click', ()=>{
+      const w = window.open('', '_blank');
+      w.document.open();
+      w.document.write(document.documentElement.outerHTML);
+      w.document.close();
+    });
+  </script>
+</body>
+</html>
